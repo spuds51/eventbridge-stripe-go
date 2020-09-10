@@ -14,8 +14,8 @@ class EventbridgeStripeGoStack(core.Stack):
         super().__init__(scope, id, **kwargs)
 
         table = ddb.Table(
-            self, 'StripeAppCustomers',
-            partition_key={'name': 'customerID', 'type': ddb.AttributeType.STRING}
+            self, 'StripeSampleCustomers',
+            partition_key={'name': 'CustomerID', 'type': ddb.AttributeType.STRING}
         )
 
         bus = events.EventBus(self, 'stripeAppEventBus', event_bus_name='stripeAppEventBus')
@@ -27,7 +27,7 @@ class EventbridgeStripeGoStack(core.Stack):
                                                      iam.ManagedPolicy.from_aws_managed_policy_name("AmazonEventBridgeFullAccess")]
                                    )
 
-        customerCreatedHandler = _lambda.Function(self, "createStripeCustomerHandler",
+        customerCreatedHandler = _lambda.Function(self, "createStripeCustomerHandlr",
                                                   runtime=_lambda.Runtime.GO_1_X,
                                                   code=_lambda.Code.asset('lambda/stripe-create-customer'),
                                                   handler='createCustomerHandler',

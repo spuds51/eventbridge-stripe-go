@@ -13,7 +13,7 @@ import (
 )
 
 type Item struct {
-	customerID   string
+	CustomerID   string
 }
 
 
@@ -28,9 +28,10 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 
 	// Update item in table Movies
 	tableName := os.Getenv("CUSTOMER_TABLE_NAME")
+	fmt.Println("Tablename:", tableName)
 
 	item := Item{
-		customerID: "Some customer ID",
+		CustomerID: "Some customer ID",
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
@@ -39,6 +40,8 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}
+	fmt.Println("marshalled:", av)
+
 	input := &dynamodb.PutItemInput{
 		Item: av,
 		//ReturnConsumedCapacity: aws.String("TOTAL"),
@@ -47,7 +50,7 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 
 	result, err := svc.PutItem(input)
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("Some error:", err.Error())
 
 	}
 	fmt.Println("Successfully updated")
