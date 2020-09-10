@@ -39,7 +39,7 @@ class EventbridgeStripeGoStack(core.Stack):
                                                   )
         table.grant_read_write_data(customerCreatedHandler)
 
-        go_lambda = _lambda.Function(self, "stripeWebhookEventHandler1",
+        go_lambda = _lambda.Function(self, "stripeWebhookEventHandler",
                                      runtime=_lambda.Runtime.GO_1_X,
                                      code=_lambda.Code.asset('lambda/stripe-webhook-handler'),
                                      handler='stripeWebhookHandler',

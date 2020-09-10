@@ -1,4 +1,4 @@
-package stripe_create_customer
+package main
 
 import (
 	"context"
@@ -8,8 +8,13 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"os"
 )
+
+type Item struct {
+	customerID   string
+}
 
 
 func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRequest)  (string, error){
@@ -22,16 +27,22 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 	svc := dynamodb.New(sess)
 
 	// Update item in table Movies
-	tableName := os.Getenv("'CUSTOMER_TABLE_NAME'")
+	tableName := os.Getenv("CUSTOMER_TABLE_NAME")
 
+	item := Item{
+		customerID: "Some customer ID",
+	}
+
+	av, err := dynamodbattribute.MarshalMap(item)
+	if err != nil {
+		fmt.Println("Got error marshalling new item:")
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
 	input := &dynamodb.PutItemInput{
-		Item: map[string]*dynamodb.AttributeValue{
-			"customerID": {
-				S: aws.String("Somewhat Famous"),
-			},
-		},
-		ReturnConsumedCapacity: aws.String("TOTAL"),
-		TableName:              aws.String(tableName),
+		Item: av,
+		//ReturnConsumedCapacity: aws.String("TOTAL"),
+		TableName: aws.String(tableName),
 	}
 
 	result, err := svc.PutItem(input)
