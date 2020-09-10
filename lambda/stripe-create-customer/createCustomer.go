@@ -22,7 +22,7 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 	svc := dynamodb.New(sess)
 
 	// Update item in table Movies
-	tableName := os.Getenv("'HG_TABLE_NAME'")
+	tableName := os.Getenv("'CUSTOMER_TABLE_NAME'")
 
 	input := &dynamodb.PutItemInput{
 		Item: map[string]*dynamodb.AttributeValue{

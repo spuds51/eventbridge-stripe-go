@@ -1,4 +1,4 @@
-module eventbridge-stripe
+module github.com/cdugga/eventbridge-stripe-go/stripeWehbookHandler
 
 go 1.14
 

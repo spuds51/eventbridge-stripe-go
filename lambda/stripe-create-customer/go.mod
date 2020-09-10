@@ -1,4 +1,4 @@
-module eventbridge-stripe-customer
+module github.com/cdugga/eventbridge-stripe-go/createCustomer
 
 go 1.14
 

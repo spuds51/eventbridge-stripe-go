@@ -17,8 +17,8 @@ import (
 
 
 const (
-	EventBusName = "appEventBus"
-	EventSource = "stripeHandler.lambda"
+	EventBusName = "stripeAppEventBus"
+	EventSource = "stripeWebHookHandler.lambda"
 	StripeCustomerCreatedEvent = "customer.created"
 )
 
