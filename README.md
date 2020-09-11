@@ -9,7 +9,13 @@ Uses AWS CDK to provision an API Gateway endpoint which acts as a target for a S
 incoming request signature and then pushes an event to AWS EventBridge. Once EventBridge receives the customer.created event it triggers a rule which forwards the event to another GO Lambda service which extracts the customer ID from the webhook event and writes to a DynamoDB table.  
 
 
+## Setup 
 
+Build Lambda handlers
+```
+cd lambda/stripe-create-customer/
+GOOS=linux go build -o createCustomerHandler github.com/cdugga/eventbridge-stripe-go/createCustomer
 
-##Usage
-Todo
+cd lambda/stripe-create-customer/
+GOOS=linux go build -o stripeWebhookHandler github.com/cdugga/eventbridge-stripe-go/stripeWehbookHandler
+```
