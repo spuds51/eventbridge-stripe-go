@@ -6,7 +6,7 @@
 ## Description
 
 Uses AWS CDK to deploy:
-* An API Gateway endpoint which will be the target for Stripe Webhook events
+* API Gateway endpoint which will be the target for Stripe Webhook events
 * GO Lambda function for handling API Gateway request and creation of new customer in DynamoDB
 * DynamoDB table for holding new customers 
 * Eventbridge event bus for routing events 
