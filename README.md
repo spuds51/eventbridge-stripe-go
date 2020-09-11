@@ -11,6 +11,13 @@ incoming request signature and then pushes an event to AWS EventBridge. Once Eve
 
 ## Setup 
 
+Configure Python virtual env
+```
+python -m venv .env/
+source .env/bin/activate
+pip install -r requirements.txt
+```
+
 Build Lambda handlers
 ```
 cd lambda/stripe-create-customer/
@@ -18,4 +25,10 @@ GOOS=linux go build -o createCustomerHandler github.com/cdugga/eventbridge-strip
 
 cd lambda/stripe-create-customer/
 GOOS=linux go build -o stripeWebhookHandler github.com/cdugga/eventbridge-stripe-go/stripeWehbookHandler
+```
+
+Deploy CDK stack
+```
+cdk synth
+cdk deploy
 ```
