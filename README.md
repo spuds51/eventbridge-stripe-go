@@ -26,7 +26,7 @@ Executable versions for each function are included in project source for conveni
 * [createCustomerHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-create-customer)
 * [stripeWebhookHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-webhook-handler)
 
-Functions can also be built from sourcee:
+Functions can also be built from source:
 
 ```
 cd lambda/stripe-create-customer/
