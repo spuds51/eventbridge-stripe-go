@@ -21,9 +21,11 @@ source .env/bin/activate
 pip install -r requirements.txt
 ```
 
-### Building Lambda handlers
+#### Building Lambda functions
 
 Executable versions for each function have been included for convenience 
+* [createCustomerHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-create-customer)
+* [stripeWebhookHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-webhook-handler)
 
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
