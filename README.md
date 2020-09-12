@@ -37,7 +37,7 @@ cdk deploy
 ```
 
 ## Tools used
-* GO
+* [GO] (https://golang.org/)
 * Python
 * AWS CDK
 * AWS APIGateway
