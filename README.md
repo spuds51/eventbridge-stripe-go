@@ -21,7 +21,9 @@ source .env/bin/activate
 pip install -r requirements.txt
 ```
 
-Build Lambda handlers
+### Building Lambda handlers
+
+Executable versions for each function have been included for convenience 
 
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
