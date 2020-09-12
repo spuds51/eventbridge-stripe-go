@@ -32,6 +32,7 @@ GOOS=linux go build -o createCustomerHandler github.com/cdugga/eventbridge-strip
 cd lambda/stripe-create-customer/
 GOOS=linux go build -o stripeWebhookHandler github.com/cdugga/eventbridge-stripe-go/stripeWehbookHandler
 ```
+Running programs target the Linux operating system. Use the GOOS runtime value to modify if required; [Go Runtime](GOOS is the running program's operating system target)
 
 Deploy CDK stack
 ```
