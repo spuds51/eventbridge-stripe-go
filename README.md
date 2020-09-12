@@ -22,6 +22,9 @@ pip install -r requirements.txt
 ```
 
 Build Lambda handlers
+
+See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
+
 ```
 cd lambda/stripe-create-customer/
 GOOS=linux go build -o createCustomerHandler github.com/cdugga/eventbridge-stripe-go/createCustomer
