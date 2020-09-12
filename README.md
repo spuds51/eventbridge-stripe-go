@@ -37,10 +37,10 @@ cdk deploy
 ```
 
 ## Tools used
-* [GO](https://golang.org/)
-* Python
-* AWS CDK
-* AWS APIGateway
-* AWS Lambda
-* AWS Eventbridge
-* AWS Dynamodb
+* [Go](https://golang.org/)
+* [Python](https://www.python.org/)
+* [AWS CDK](https://github.com/aws/aws-cdk)
+* [AWS APIGateway](https://aws.amazon.com/api-gateway/)
+* [AWS Lambda](https://aws.amazon.com/lambda/)
+* [AWS Eventbridge](https://aws.amazon.com/eventbridge/)
+* [AWS Dynamodb](https://aws.amazon.com/dynamodb/)
