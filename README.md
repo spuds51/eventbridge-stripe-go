@@ -12,6 +12,8 @@ Uses AWS CDK to deploy:
 
 ## Setup 
 
+Please refer to [AWS CDK workshop](https://cdkworkshop.com/30-python/20-create-project/200-virtualenv.html) for a more detailed set of instructions for initializing and using python with the CDK.  
+
 Configure Python virtual env
 ```
 python -m venv .env/
