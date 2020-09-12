@@ -35,3 +35,12 @@ Deploy CDK stack
 cdk synth
 cdk deploy
 ```
+
+##Tools used
+* GO
+* Python
+* AWS CDK
+* AWS APIGateway
+* AWS Lambda
+* AWS Eventbridge
+* AWS Dynamodb
