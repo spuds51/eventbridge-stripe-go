@@ -12,14 +12,13 @@ The AWS CDK stack deploys the following serverless components:
 
 ## Setup 
 
-Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-create-project/200-virtualenv.html) for a more detailed set of instructions for initializing and using the python language with the CDK.  
-
 Configure Python virtual env
 ```
 python -m venv .env/
 source .env/bin/activate
 pip install -r requirements.txt
 ```
+Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-create-project/200-virtualenv.html) for a more detailed set of instructions for initializing and using the python language with the CDK.  
 
 #### Building Lambda functions
 
