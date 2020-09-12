@@ -1,9 +1,7 @@
 
 # eventbridge-stripe-go 
 
-`eventbridge-stripe-go` Builds a serverless architecture to handle Stripe Webhook events 
-
-## Description
+`eventbridge-stripe-go` Builds a serverless architecture to handle [Stripe Webhook](https://stripe.com/docs/api/webhook_endpoints) events 
 
 Uses AWS CDK to deploy:
 * API Gateway endpoint used as the target for a Stripe Webhook event
