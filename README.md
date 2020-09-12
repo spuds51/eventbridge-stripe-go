@@ -36,7 +36,7 @@ cdk synth
 cdk deploy
 ```
 
-##Tools used
+## Tools used
 * GO
 * Python
 * AWS CDK
