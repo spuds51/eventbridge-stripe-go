@@ -36,7 +36,7 @@ Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-c
 cdk deploy
 ```
 
-## (Optional) Building Lambda functions
+## (Optional) Compile Lambda functions
 
 Executable versions for each function are included in project source for convenience;
 * [createCustomerHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-create-customer)
