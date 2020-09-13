@@ -55,6 +55,23 @@ GOOS=linux go build -o stripeWebhookHandler github.com/cdugga/eventbridge-stripe
 Running programs target the Linux operating system. Use the GOOS runtime value to modify if required; [Go Runtime](GOOS is the running program's operating system target)
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
+## Stripe signature verification
+Stripe can optionally [sign](https://stripe.com/docs/webhooks/signatures) the webhook events it sends to your endpoints by including a signature in each event’s Stripe-Signature header.
+
+```
+func verifyWebhookSig(request events.APIGatewayProxyRequest) bool{
+
+	_, err := webhook.ConstructEvent([]byte(request.Body), request.Headers["Stripe-Signature"],
+		"<your stripe webhooks secret here >")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error verifying webhook signature: %v\n", err)
+		return false
+	}
+	fmt.Print("Succeeded verifying webhook sig", request.Headers["Stripe-Signature"])
+	return true
+
+}
+```
 
 ## Tools used
 * [Go](https://golang.org/)
