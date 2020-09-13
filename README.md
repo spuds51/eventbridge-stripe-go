@@ -9,13 +9,21 @@ The AWS CDK stack deploys the following serverless components:
 * DynamoDB table where new customer details are written
 * Eventbridge event bus which orchestrates AWS servcies based on various events
 
+## Getting Started
 
-## Setup 
+The fastest way to get started with `eventbridge-stripe-go` is to clone the repo, configure the cdk environment and simply deploy leveraging the already pre-compiled Go Lmabda functions. 
+
+```
+git clone https://github.com/cdugga/eventbridge-stripe-go.git
+```
 
 Configure Python virtual env
+
 ```
 python -m venv .env/
+
 source .env/bin/activate
+
 pip install -r requirements.txt
 ```
 Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-create-project/200-virtualenv.html) for a more detailed set of instructions for initializing and using the python language with the CDK.  
