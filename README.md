@@ -13,12 +13,14 @@ The AWS CDK stack deploys the following serverless components:
 
 The fastest way to get started with `eventbridge-stripe-go` is to clone the repo, configure the cdk environment and simply deploy leveraging the already pre-compiled Go Lmabda functions. 
 
+1. Clone repo
 ```
 git clone https://github.com/cdugga/eventbridge-stripe-go.git
 ```
 
 Configure Python virtual env
 
+2. Configure Python environment
 ```
 python -m venv .env/
 
@@ -28,7 +30,13 @@ pip install -r requirements.txt
 ```
 Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-create-project/200-virtualenv.html) for a more detailed set of instructions for initializing and using the python language with the CDK.  
 
-#### Building Lambda functions
+3. Deploy stack
+
+```
+cdk deploy
+```
+
+#### (Optional) Building Lambda functions
 
 Executable versions for each function are included in project source for convenience;
 * [createCustomerHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-create-customer)
