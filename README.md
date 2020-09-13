@@ -33,6 +33,7 @@ Please refer to [AWS CDK Python workshop](https://cdkworkshop.com/30-python/20-c
 3. Deploy stack
 
 ```
+cdk synth
 cdk deploy
 ```
 
@@ -54,11 +55,6 @@ GOOS=linux go build -o stripeWebhookHandler github.com/cdugga/eventbridge-stripe
 Running programs target the Linux operating system. Use the GOOS runtime value to modify if required; [Go Runtime](GOOS is the running program's operating system target)
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
-Deploy CDK stack
-```
-cdk synth
-cdk deploy
-```
 
 ## Tools used
 * [Go](https://golang.org/)
