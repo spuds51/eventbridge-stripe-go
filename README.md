@@ -5,7 +5,7 @@
 
 The AWS CDK stack deploys the following serverless components:
 * A single API Gateway endpoint used as the target for the Stripe Webhook [customer.created](https://stripe.com/docs/api/events/types#event_types-customer.created) webhook event
-* GO Lambda handler functions:
+* Go Lambda handler functions:
 	* A functions which handles the initial API Gateway request, verifying the Stripe Webhook request signature and subsequently dispatching event to Eventbridge 
 	* A second function which is the target of the EventBridge event and writes the newly created customer to a Dynamodb table
 * DynamoDB table where new customer details are written
