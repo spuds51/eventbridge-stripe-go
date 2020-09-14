@@ -28,7 +28,6 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 
 	// Update item in table Movies
 	tableName := os.Getenv("CUSTOMER_TABLE_NAME")
-	fmt.Println("Tablename:", tableName)
 
 	item := Item{
 		CustomerID: "Some customer ID",
