@@ -56,20 +56,20 @@ Running programs target the Linux operating system. Use the GOOS runtime value t
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
 ## Stripe signature verification
-Stripe can optionally [sign](https://stripe.com/docs/webhooks/signatures) the webhook events it sends to your endpoints by including a signature in each event’s Stripe-Signature header.
+Stripe can optionally [sign](https://stripe.com/docs/webhooks/signatures) the webhook events it sends to your endpoints by including a signature in each event’s Stripe-Signature header. This check is added in the [stripeWebhookHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-webhook-handler) function. 
 
 ```
-func verifyWebhookSig(request events.APIGatewayProxyRequest) bool{
+func verifyWebhookSig(request events.APIGatewayProxyRequest, secret string) bool{
 
-	_, err := webhook.ConstructEvent([]byte(request.Body), request.Headers["Stripe-Signature"],
-		"<your stripe webhooks secret here >")
+	sig := request.Headers["Stripe-Signature"]
+	body := []byte(request.Body)
+
+	_, err := webhook.ConstructEvent(body, sig,	secret)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error verifying webhook signature: %v\n", err)
 		return false
 	}
-	fmt.Print("Succeeded verifying webhook sig", request.Headers["Stripe-Signature"])
 	return true
-
 }
 ```
 
