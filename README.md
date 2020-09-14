@@ -5,7 +5,9 @@
 
 The AWS CDK stack deploys the following serverless components:
 * A single API Gateway endpoint used as the target for the Stripe Webhook [customer.created](https://stripe.com/docs/api/events/types#event_types-customer.created) webhook event
-* GO Lambda handler functions for handling the initial API Gateway request and subsequent Eventbridge event notification that new Stripe customer creation has occured
+* Go Lambda handler functions:
+	* A functions which handles the initial API Gateway request, verifying the Stripe Webhook request signature and subsequently dispatching event to Eventbridge 
+	* A second function which is the target of the EventBridge event and writes the newly created customer to a Dynamodb table
 * DynamoDB table where new customer details are written
 * Eventbridge event bus which orchestrates AWS servcies based on various events
 
@@ -56,20 +58,20 @@ Running programs target the Linux operating system. Use the GOOS runtime value t
 See [AWS Lambda deployment package in Go](https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html) for further instructions on how to package a Go lambda function. 
 
 ## Stripe signature verification
-Stripe can optionally [sign](https://stripe.com/docs/webhooks/signatures) the webhook events it sends to your endpoints by including a signature in each event’s Stripe-Signature header.
+Stripe can optionally [sign](https://stripe.com/docs/webhooks/signatures) the webhook events it sends to your endpoints by including a signature in each event’s Stripe-Signature header. This check is added in the [stripeWebhookHandler](https://github.com/cdugga/eventbridge-stripe-go/tree/master/lambda/stripe-webhook-handler) function. It relies on a secure token read from AWS Secrets Manager
 
 ```
-func verifyWebhookSig(request events.APIGatewayProxyRequest) bool{
+func verifyWebhookSig(request events.APIGatewayProxyRequest, secret string) bool{
 
-	_, err := webhook.ConstructEvent([]byte(request.Body), request.Headers["Stripe-Signature"],
-		"<your stripe webhooks secret here >")
+	sig := request.Headers["Stripe-Signature"]
+	body := []byte(request.Body)
+
+	_, err := webhook.ConstructEvent(body, sig,	secret)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error verifying webhook signature: %v\n", err)
 		return false
 	}
-	fmt.Print("Succeeded verifying webhook sig", request.Headers["Stripe-Signature"])
 	return true
-
 }
 ```
 
