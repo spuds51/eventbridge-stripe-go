@@ -11,6 +11,9 @@ The AWS CDK stack deploys the following serverless components:
 etails are written
 * Eventbridge event bus which orchestrates AWS servcies based on various events
 
+## Prerequisites
+The Lambda webhook handler reads a Stripe signing secret from AWS Secrets Manager to verify the incoming request, an assumption is made that this secret has already been created with path: dev/StripeApp/stripe/secret
+
 ## Getting Started
 
 The fastest way to get started with `eventbridge-stripe-go` is to clone the repo, configure the cdk environment and simply deploy leveraging the already pre-compiled Go Lmabda functions. 
