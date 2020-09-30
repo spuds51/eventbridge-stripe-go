@@ -17,7 +17,7 @@ The Lambda webhook handler reads a Stripe signing secret from AWS Secrets Manage
 AWS Secrets Manager
 dev/StripeApp/stripe/secret
 ```
-## Getting Started
+## Deploying the Serverless stack
 
 The fastest way to get started with `eventbridge-stripe-go` is to clone the repo, configure the cdk environment and simply deploy leveraging the already pre-compiled Go Lmabda functions. 
 
