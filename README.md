@@ -83,3 +83,4 @@ func verifyWebhookSig(request events.APIGatewayProxyRequest, secret string) bool
 * [AWS Lambda](https://aws.amazon.com/lambda/)
 * [AWS Eventbridge](https://aws.amazon.com/eventbridge/)
 * [AWS Dynamodb](https://aws.amazon.com/dynamodb/)
+* [AWS SecretsManager](https://aws.amazon.com/secrets-manager/)
