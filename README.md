@@ -76,9 +76,9 @@ func verifyWebhookSig(request events.APIGatewayProxyRequest, secret string) bool
 ```
 
 ## Tools used
-* [Go](https://golang.org/)
-* [Python](https://www.python.org/)
-* [AWS CDK](https://github.com/aws/aws-cdk)
+* [Go 1.15](https://golang.org/)
+* [Python 3.8](https://www.python.org/)
+* [AWS CDK 1.62.0](https://github.com/aws/aws-cdk)
 * [AWS APIGateway](https://aws.amazon.com/api-gateway/)
 * [AWS Lambda](https://aws.amazon.com/lambda/)
 * [AWS Eventbridge](https://aws.amazon.com/eventbridge/)
