@@ -69,7 +69,7 @@ class EventbridgeStripeGoStack(core.Stack):
                             event_bus=bus,
                             description='all success events are caught here and logged centrally',
                             event_pattern=events.EventPattern(
-                                detail = {"stripeEvent": ["customer.created"]},
+                                detail = {"stripeEvent": ["customer.subscription.created"]},
                                 source = ["stripeWebHookHandler.lambda"]
                             ))
 

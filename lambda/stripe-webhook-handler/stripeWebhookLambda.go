@@ -19,7 +19,7 @@ import (
 const (
 	EventBusName = "stripeAppEventBus"
 	EventSource = "stripeWebHookHandler.lambda"
-	StripeCustomerCreatedEvent = "customer.created"
+	StripeCustomerCreatedEvent = "customer.subscription.created"
 	SecretName = "dev/StripeApp/stripe/secret"
 	SecretVersion = "AWSCURRENT"
 )

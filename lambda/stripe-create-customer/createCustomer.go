@@ -17,7 +17,7 @@ type Item struct {
 }
 
 
-func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRequest)  (string, error){
+func CreateCustomerHandler(ctx context.Context, event events.CloudWatchEvent)  (string, error){
 
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
 		SharedConfigState: session.SharedConfigEnable,
@@ -30,7 +30,7 @@ func CreateCustomerHandler(ctx context.Context, request events.APIGatewayProxyRe
 	tableName := os.Getenv("CUSTOMER_TABLE_NAME")
 
 	item := Item{
-		CustomerID: "Some customer ID",
+		CustomerID: event.DetailType,
 	}
 
 	av, err := dynamodbattribute.MarshalMap(item)
