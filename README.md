@@ -2,6 +2,8 @@
 
 `eventbridge-stripe-go` Builds a serverless architecture to handle [Stripe Webhook](https://stripe.com/docs/api/webhook_endpoints) events 
 
+![Alt text](eventbrdge_stripe.png?raw=true "Optional Title")
+
 The AWS CDK stack deploys the following serverless components:
 * A single API Gateway endpoint used as the target for the Stripe Webhook [customer.subscription.created](https://stripe.com/docs/api/events/types#event_types-customer.subscription.created) webhook event
 * Go Lambda handler functions:
